@@ -3,15 +3,15 @@
 Plugin Name: WeatherZone Embed
 Plugin URI: https://om4.com.au/wordpress-plugins/weatherzone/
 Description: Allows you to embed WeatherZone.com.au weather buttons on your site. Supports both weather forecast and current weather observations buttons.
-Version: 1.2.5
+Version: 1.2.6
 Author: OM4
-Author URI: https://om4.com.au/
+Author URI: https://om4.com.au/plugins/
 Text Domain: om4-weatherzone
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/*  Copyright 2009-2015 OM4 (email : info@om4.com.au)
+/*  Copyright 2009-2016 OM4 (email : plugins@om4.com.au)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 class OM4_WeatherZone {
 	
-	var $version = '1.2.5';
+	var $version = '1.2.6';
 	
 	var $dbVersion = 1;
 	
@@ -49,7 +49,7 @@ class OM4_WeatherZone {
 	 * Constructor
 	 *
 	 */
-	function OM4_WeatherZone() {
+	public function __construct() {
 		
 		// Store the name of the directory that this plugin is installed in
 		$this->dirname = str_replace('/weatherzone.php', '', plugin_basename(__FILE__));
@@ -71,7 +71,7 @@ class OM4_WeatherZone {
 	 * Intialise I18n
 	 *
 	 */
-	function LoadDomain() {
+	public function LoadDomain() {
 		load_plugin_textdomain('om4-weatherzone', false, WP_PLUGIN_DIR.'/'.dirname(plugin_basename(__FILE__)));
 	}
 	
@@ -79,7 +79,7 @@ class OM4_WeatherZone {
 	 * Plugin Activation Tasks
 	 *
 	 */
-	function Activate() {
+	public function Activate() {
 		// There aren't really any installation tasks at the moment
 		if (!$this->installedVersion) {
 			$this->installedVersion = $this->dbVersion;
@@ -91,7 +91,7 @@ class OM4_WeatherZone {
 	 * Performs any upgrade tasks if required
 	 *
 	 */
-	function CheckVersion() {
+	public function CheckVersion() {
 		if ($this->installedVersion != $this->dbVersion) {
 			// Upgrade tasks
 			if ($this->installedVersion == 0) {
@@ -104,7 +104,7 @@ class OM4_WeatherZone {
 	/**
 	 * Register the [weatherzone] shortcode
 	 */
-	function RegisterShortcode() {
+	public function RegisterShortcode() {
 		add_shortcode('weatherzone', array($this, 'ShortcodeHandler'));
 		
 		// Parse shortcodes in text widgets
@@ -116,7 +116,7 @@ class OM4_WeatherZone {
 	/**
 	 * [weatherzone] shortcode handler
 	 */
-	function ShortcodeHandler($atts, $content = null) {
+	public function ShortcodeHandler($atts, $content = null) {
 	
 		// List of supported shortcode attributes and their default values
 		$defaults = array(
@@ -201,7 +201,7 @@ EOD;
 	}
 	
 
-	function SaveInstalledVersion() {
+	private function SaveInstalledVersion() {
 		update_option($this->optionName, $this->installedVersion);
 	}
 }
