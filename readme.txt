@@ -3,7 +3,7 @@ Contributors: jamescollins, glenn-om4
 Donate link: https://om4.com.au/wordpress-plugins/#donate
 Tags: weatherzone, weather, australia, shortcode, wp, multisite, wpmu
 Requires at least: 3.5
-Tested up to: 4.6
+Tested up to: 4.7
 Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -43,7 +43,7 @@ Required: Yes
  = locality =
 You may also add a `locality` parameter if you wish. This is recommended as it will ensure that your closest weather station is provided.
 
-For example if you wanted the current weather for Wangaratta to appear in your page, your script call would look like this:
+For example if you wanted the current weather for Shenton Park to appear in your page, your script call would look like this:
 
 `[weatherzone mode="currentweather" postcode="6008" locality="Shenton Park"]`
 
