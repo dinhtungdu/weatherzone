@@ -57,7 +57,7 @@ Valid values for the `showradar` parameter are:
 * `true`: (default) Yes, display the link
 * `false`: No, do not display the link
 
-See the [WordPress WeatherZone Embed Plugin](https://om4.com.au/wordpress-plugins/weatherzone/) home page for further information.
+See the [WordPress WeatherZone Embed Plugin](https://om4.com.au/plugins/weatherzone/) home page for further information.
 
 == Installation ==
 
