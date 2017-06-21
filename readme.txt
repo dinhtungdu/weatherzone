@@ -4,7 +4,7 @@ Donate link: https://om4.com.au/wordpress-plugins/#donate
 Tags: weatherzone, weather, australia, shortcode, wp, multisite, wpmu
 Requires at least: 3.5
 Tested up to: 4.8
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,10 @@ Yes. As of v1.0.1, you can use the [weatherzone] shortcode in a text widget.
 1. Example current weather and forecast buttons/widgets
 
 == Changelog ==
+
+= 1.2.7=
+* Add support for HTTPS/SSL sites.
+* WordPress 4.8 compatibility.
 
 = 1.2.6=
 * PHP 7 compatibility (no more deprecated constructor warning).

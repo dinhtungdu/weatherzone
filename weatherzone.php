@@ -3,7 +3,7 @@
 Plugin Name: WeatherZone Embed
 Plugin URI: https://om4.com.au/plugins/weatherzone/
 Description: Allows you to embed WeatherZone.com.au weather buttons on your site. Supports both weather forecast and current weather observations buttons.
-Version: 1.2.6
+Version: 1.2.7
 Author: OM4
 Author URI: https://om4.com.au/plugins/
 Text Domain: om4-weatherzone
@@ -11,7 +11,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/*  Copyright 2009-2016 OM4 (email : plugins@om4.com.au)
+/*  Copyright 2009-2017 OM4 (email : plugins@om4.com.au)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -160,11 +160,11 @@ class OM4_WeatherZone {
 				
 				$html .= <<<EOD
 <!--Weatherzone current weather button-->
-<script type="text/javascript" src="http://www.weatherzone.com.au/woys/graphic_current.jsp?postcode=$params"></script>
+<script type="text/javascript" src="https://www.weatherzone.com.au/woys/graphic_current.jsp?postcode=$params"></script>
 EOD;
                 if ($atts['showradar'] === 'true') {
                 	$html .= <<<EOD
-<br /><a href="http://www.weatherzone.com.au/radar.jsp">weather radar</a>
+<br /><a href="https://www.weatherzone.com.au/radar.jsp">weather radar</a>
 EOD;
                 }
                 $html .= <<<EOD
@@ -180,11 +180,11 @@ EOD;
                 
                 $html .= <<<EOD
 <!--Weatherzone forecast button-->
-<script type="text/javascript" src="http://www.weatherzone.com.au/woys/graphic_forecast.jsp?postcode=$params"></script>
+<script type="text/javascript" src="https://www.weatherzone.com.au/woys/graphic_forecast.jsp?postcode=$params"></script>
 EOD;
                 if ($atts['showradar'] === 'true') {
                     $html .= <<<EOD
-<br /><a href="http://www.weatherzone.com.au/radar.jsp">weather radar</a>
+<br /><a href="https://www.weatherzone.com.au/radar.jsp">weather radar</a>
 EOD;
                 }
                 $html .= <<<EOD
