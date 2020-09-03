@@ -1,10 +1,9 @@
 === WeatherZone Embed ===
 Contributors: jamescollins, glenn-om4
-Donate link: https://om4.com.au/wordpress-plugins/#donate
 Tags: weatherzone, weather, australia, shortcode, wp, multisite, wpmu
 Requires at least: 3.5
-Tested up to: 4.8
-Stable tag: 1.2.7
+Tested up to: 5.5
+Stable tag: 1.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +13,7 @@ Allows you to easily embed Australian weather data on your website. Supports bot
 
 Allows you to easily embed Australian weather forecast and observation data on your website.
 
-Data is provided in the form of a [WeatherZone.com.au button](http://www.weatherzone.com.au/about/freeweatherbutton.jsp). 
+Data is provided in the form of a [WeatherZone.com.au button](http://www.weatherzone.com.au/about/freeweatherbutton.jsp).
 
 Supports both weather forecast and current weather observations buttons.
 
@@ -76,12 +75,15 @@ See the plugin's main description.
 = Can I add a weather button to my sidebar =
 
 Yes. As of v1.0.1, you can use the [weatherzone] shortcode in a text widget.
- 
+
 
 == Screenshots ==
 1. Example current weather and forecast buttons/widgets
 
 == Changelog ==
+
+= 1.2.8=
+* WordPress 5.5 compatibility.
 
 = 1.2.7=
 * Add support for HTTPS/SSL sites.
@@ -122,7 +124,7 @@ Yes. As of v1.0.1, you can use the [weatherzone] shortcode in a text widget.
 = 1.0.0 =
 * Initial release.
 
-== Upgrade Notice == 
+== Upgrade Notice ==
 
 = 1.2.2 =
 * WordPress 3.5 compatibility
