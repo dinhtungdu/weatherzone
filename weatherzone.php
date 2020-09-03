@@ -3,7 +3,7 @@
 Plugin Name: WeatherZone Embed
 Plugin URI: https://om4.io/plugins/weatherzone/
 Description: Allows you to embed WeatherZone.com.au weather buttons on your site. Supports both weather forecast and current weather observations buttons.
-Version: 1.2.8
+Version: 1.2.9
 Author: OM4
 Author URI: https://om4.io/
 Text Domain: om4-weatherzone
@@ -31,7 +31,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 class OM4_WeatherZone {
 
-	var $version = '1.2.8';
+	var $version = '1.2.9';
 
 	var $dbVersion = 1;
 
