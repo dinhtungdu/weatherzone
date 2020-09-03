@@ -21,7 +21,6 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.PLUGINS_GITHUB_TOKEN }}
-          upload_url: ${{ github.event.release.upload_url }}
           file: ${{github.workspace}}/${{ github.event.repository.name }}.zip
           asset_name: ${{ github.event.repository.name }}.zip
           tag: ${{ github.ref }}
