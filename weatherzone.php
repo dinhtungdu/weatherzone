@@ -3,7 +3,7 @@
 Plugin Name: WeatherZone Embed
 Plugin URI: https://om4.com.au/plugins/weatherzone/
 Description: Allows you to embed WeatherZone.com.au weather buttons on your site. Supports both weather forecast and current weather observations buttons.
-Version: 1.2.7
+Version: 1.2.8
 Author: OM4
 Author URI: https://om4.com.au/plugins/
 Text Domain: om4-weatherzone
@@ -30,51 +30,51 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 class OM4_WeatherZone {
-	
-	var $version = '1.2.6';
-	
+
+	var $version = '1.2.8';
+
 	var $dbVersion = 1;
-	
+
 	var $installedVersion;
-	
+
 	var $dirname;
-	
+
 	var $url;
-	
+
 	var $optionName = 'om4_weatherzone_db_version';
-	
+
 	static $number = 1;
-	
+
 	/**
 	 * Constructor
 	 *
 	 */
 	public function __construct() {
-		
+
 		// Store the name of the directory that this plugin is installed in
 		$this->dirname = str_replace('/weatherzone.php', '', plugin_basename(__FILE__));
-		
+
 		$this->url = plugins_url('weatherzone/');
 
 		register_activation_hook(__FILE__, array($this, 'Activate'));
-		
+
 		add_action('init', array($this, 'LoadDomain'));
-		
+
 		add_action('init', array($this, 'CheckVersion'));
-		
+
 		add_action('init', array($this, 'RegisterShortcode'));
 
 		$this->installedVersion = intval(get_option($this->optionName));
 	}
-	
+
 	/**
-	 * Intialise I18n
+	 * Initialise I18n
 	 *
 	 */
 	public function LoadDomain() {
-		load_plugin_textdomain('om4-weatherzone', false, WP_PLUGIN_DIR.'/'.dirname(plugin_basename(__FILE__)));
+		load_plugin_textdomain('om4-weatherzone', false, dirname(plugin_basename(__FILE__)));
 	}
-	
+
 	/**
 	 * Plugin Activation Tasks
 	 *
@@ -86,7 +86,7 @@ class OM4_WeatherZone {
 			$this->SaveInstalledVersion();
 		}
 	}
-	
+
 	/**
 	 * Performs any upgrade tasks if required
 	 *
@@ -100,24 +100,24 @@ class OM4_WeatherZone {
 			$this->SaveInstalledVersion();
 		}
 	}
-	
+
 	/**
 	 * Register the [weatherzone] shortcode
 	 */
 	public function RegisterShortcode() {
 		add_shortcode('weatherzone', array($this, 'ShortcodeHandler'));
-		
+
 		// Parse shortcodes in text widgets
 		// Required until http://core.trac.wordpress.org/ticket/10457 is committed
 		add_filter('widget_text', 'do_shortcode');
 	}
-	
-	
+
+
 	/**
 	 * [weatherzone] shortcode handler
 	 */
 	public function ShortcodeHandler($atts, $content = null) {
-	
+
 		// List of supported shortcode attributes and their default values
 		$defaults = array(
 			'mode' => 'currentweather',
@@ -125,14 +125,14 @@ class OM4_WeatherZone {
 			'locality' => '',
 			'showradar' => 'true'
 		);
-		
+
 		// Combine the specified attributes with the default values
 		$atts = shortcode_atts( $defaults, $atts);
-		
+
 		// Valid values for each parameter
 		$validValues['mode'] = array('currentweather', 'forecast');
 		$validValues['showradar'] = array('true', 'false');
-		
+
 		// Validate each of the parameters
 		foreach ($atts as $key => $value) {
 			if (isset($validValues[$key])) {
@@ -143,12 +143,12 @@ class OM4_WeatherZone {
 				$atts[$key] = esc_attr($value);
 			}
 		}
-		
+
 		// Ensure the required parameters have been specified
 		if (!strlen($atts['mode'])) return;
 		if (!strlen($atts['postcode'])) return;
 		if (!strlen($atts['showradar'])) return;
-		
+
 		$html = '<div id="weatherzone_' . self::$number . '" class="weatherzone ' . $atts['mode'] . '">';
 
 		switch ($atts['mode']) {
@@ -157,7 +157,7 @@ class OM4_WeatherZone {
 				if (!empty($atts['locality'])) {
 					$params .= '&locality=' . urlencode($atts['locality']);
 				}
-				
+
 				$html .= <<<EOD
 <!--Weatherzone current weather button-->
 <script type="text/javascript" src="https://www.weatherzone.com.au/woys/graphic_current.jsp?postcode=$params"></script>
@@ -171,13 +171,13 @@ EOD;
 <!--end Weatherzone current weather button-->
 EOD;
                 break;
-			
+
             case 'forecast':
 				$params = urlencode($atts['postcode']);
                 if (!empty($atts['locality'])) {
                     $params .= '&locality=' . urlencode($atts['locality']);
                 }
-                
+
                 $html .= <<<EOD
 <!--Weatherzone forecast button-->
 <script type="text/javascript" src="https://www.weatherzone.com.au/woys/graphic_forecast.jsp?postcode=$params"></script>
@@ -192,14 +192,14 @@ EOD;
 EOD;
 				break;
 		}
-		
+
 		$html .= '</div>';
-		
+
 		self::$number++;
-		
+
 		return $html;
 	}
-	
+
 
 	private function SaveInstalledVersion() {
 		update_option($this->optionName, $this->installedVersion);
