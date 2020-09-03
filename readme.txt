@@ -1,6 +1,5 @@
 === WeatherZone Embed ===
 Contributors: jamescollins, glenn-om4
-Donate link: https://om4.com.au/wordpress-plugins/#donate
 Tags: weatherzone, weather, australia, shortcode, wp, multisite, wpmu
 Requires at least: 3.5
 Tested up to: 5.5
