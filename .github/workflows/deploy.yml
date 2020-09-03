@@ -18,11 +18,10 @@ jobs:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
       - name: Upload release asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.PLUGINS_GITHUB_TOKEN }}
+        uses: svenstaro/upload-release-action@v2
         with:
+          repo_token: ${{ secrets.PLUGINS_GITHUB_TOKEN }}
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{github.workspace}}/${{ github.event.repository.name }}.zip
+          file: ${{github.workspace}}/${{ github.event.repository.name }}.zip
           asset_name: ${{ github.event.repository.name }}.zip
-          asset_content_type: application/zip
+          tag: ${{ github.ref }}
