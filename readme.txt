@@ -82,26 +82,26 @@ Yes. As of v1.0.1, you can use the [weatherzone] shortcode in a text widget.
 
 == Changelog ==
 
-= 1.2.11=
+= 1.2.11 =
 * Update release process.
 
-= 1.2.10=
+= 1.2.10 =
 * Update release process.
 
-= 1.2.9=
+= 1.2.9 =
 * Update release process.
 
-= 1.2.9=
+= 1.2.9 =
 * Translation updates.
 
-= 1.2.8=
+= 1.2.8 =
 * WordPress 5.5 compatibility.
 
-= 1.2.7=
+= 1.2.7 =
 * Add support for HTTPS/SSL sites.
 * WordPress 4.8 compatibility.
 
-= 1.2.6=
+= 1.2.6 =
 * PHP 7 compatibility (no more deprecated constructor warning).
 * WordPress 4.5 compatibility.
 * Readme updates.
